@@ -78,14 +78,14 @@
   });
   
   function addListeners() {
-    window.addEventListener('scroll', scrollCheck);
+    //window.addEventListener('scroll', scrollCheck);
     window.addEventListener('resize', resize);
   }
   
-  function scrollCheck() {
+ /* function scrollCheck() {
     animateHeader = document.body.scrollTop <= height.value;
   }
-  
+  */
   function resize() {
     width.value = window.innerWidth;
     height.value = window.innerHeight;

@@ -1,5 +1,5 @@
 <template>
-  <NuxtLayout name="post">
+  <NuxtLayout name="page">
     
     <template #header>
       <postHeader :url="url" :themeColor="themeColor">
@@ -10,11 +10,10 @@
     </template>
     <template #main>
       <ContentRendererMarkdown :value="document.body" class="content"/>
+      <comment :pid="document.slug" api="https://api.lihouse.xyz"/>
     </template>
     <template #footer>
-      <div class="site_info">
-        <p class="special_font">COPYRIGHT © 2022-2024 LIMEUWU</p>
-      </div>
+      <div class="site_info"><p class="special_font">COPYRIGHT © 2022-2024 {{ SITE.author }}</p></div>
     </template>
   </NuxtLayout>
 </template>
@@ -23,6 +22,8 @@
 import { useRoute } from 'vue-router'
 import { useAsyncData } from '#app'
 import postHeader from '../../components/postHeader.vue'
+import comment from '../../components/comment.vue'
+
 import { invertHexColor } from '../utils/invertColor'
 const color = ref('')
 const route = useRoute()
@@ -33,29 +34,30 @@ const { data: SITE } = await useAsyncData('site', () => import('../config/config
 
 // 获取 document 数据
 const { data: document } = await useAsyncData(`content-${slug}`, () => queryContent(`/post/${slug}`).findOne())
-
+console.log(document)
 url.value = document.value.image;
 if (document.value.color == undefined) color.value = invertColor(themeColor)
 else color.value = document.value.color
 const themeColor = ref(document.value.themeColor);
 useSeoMeta({
-    title: `${SITE.value.title} - ${document.value.title}`,
-    ogTitle: `${SITE.value.title} - ${document.value.title}`,
-    description: document.value.body,
-    ogDescription: document.value.body,
+    title: `${document.value.title} - ${SITE.value.title}`,
+    ogTitle: `${document.value.title} - ${SITE.value.title}`,
+    description: document.value.preview,
+    ogDescription: document.value.preview,
     ogImage: document.value.image || 'https://cdn-community.codemao.cn/47/community/d2ViXzMwMDFfNDk3MDQ3Ml8wXzE2NzEwODc3MTQ3MTRfNWNhMDJiYTM.png',
 })
   
   // 定义页面 meta 信息
   definePageMeta({
     documentDriven: true,
-    layout: 'post',
+    layout: 'page',
   })
 
 </script>
 
 
 <style scoped>
+
 .title {
   position: absolute;
     max-width: 800px;
@@ -67,14 +69,7 @@ useSeoMeta({
     z-index:22;
     max-width: 1000px;
 }
-.content{
-  max-width: 1000px;
-    width: 90%;
-    
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 40px;
-}
+
 
 </style>
 <style>

@@ -31,7 +31,7 @@
       </div>
     </template>
     <template #footer>
-      <div class="site_info"><p class="special_font">COPYRIGHT © 2022-2024 LIMEUWU</p></div>
+      <div class="site_info"><p class="special_font">COPYRIGHT © 2022-2024 {{ SITE.author }}</p></div>
     </template>
     
     
@@ -42,6 +42,13 @@
 <style>
 .post_container > :first-child {
     margin-top: 0;
+}
+.post:hover {
+  transform: translateY(1px);
+  box-shadow: 0 1px 10px rgba(0,0,0,0.1);
+}
+.post {
+  transition: all 0.2s ease;
 }
 .insight {
     margin-top: 10px;
@@ -119,7 +126,7 @@
 
 @media (min-width: 700px) {
   .post_info{
-  padding:15px 30px 15px 15px;
+  padding:15px 20px 15px 20px;
 }
     .post_info > p , h3 {
         display: -webkit-box;
@@ -147,7 +154,7 @@
   
     .thumb {
         flex: 45%;
-      margin-right:10px;
+      
     }
 
     .thumb_img {

@@ -19,7 +19,7 @@
   useHead({
     style: [
       {
-        children: `.full_bg:after {content: "";display: block;position: absolute;bottom: 0;width: 100%;height: 85%;background-image: linear-gradient(0deg, ${props.themeColor} 50.5%, #fff0 100%);}`
+        children: `.full_bg:after {content: "";display: block;position: absolute;bottom: 0;width: 100%;height: 85%;background-image: linear-gradient(0deg, ${props.themeColor} 0%, #fff0 85%);}`
     }]})
   /*
   const { data } = await useAsyncData('routeMeta', () => {

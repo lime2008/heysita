@@ -1,11 +1,13 @@
 import type { Site, SocialObjects } from "./types";
+import * as link from "./link";
+import * as routes from "./route";
 import avatar from "../assets/headimg_dl.jpg"
-
+export const LINK = link;
+export const NAVIGATION = routes;
 export const SITE: Site = {
-  website: "https://krokiia.top/", // replace this with your deployed domain
-  author: "krokiia",
+  website: "https://lokria.top/", // replace this with your deployed domain
+  author: "LOKRIA",
   avatar : avatar,
-  profile: "https://satnaing.dev/",
   desc: "珞佳的温暖小窝，记录着生活中琐碎小事.",
   title: "珞佳小窝",
   postPerPage: 5,

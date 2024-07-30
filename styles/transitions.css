@@ -1,0 +1,31 @@
+.loading_layer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.5s ease;
+  }
+  
+  .loading_layer.active {
+    opacity: 1;
+  }
+  
+  .layer_logo {
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  
+  .fade-enter-active, .fade-leave-active {
+    transition: opacity 0.5s ease;
+  }
+  
+  .fade-enter, .fade-leave-to {
+    opacity: 0;
+  }
+  

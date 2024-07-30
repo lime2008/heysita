@@ -1,7 +1,7 @@
 ---
 author: 珞佳
 timestamp: 1715664363
-title: 一些高中英语作文模板和范文！
+title: 一些高中英语作文模板和范文
 slug: composition_template
 image: https://creation.codemao.cn/716/appcraft/IMAGE_KWQucD0cX_1721876087958.jpg
 tags:

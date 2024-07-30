@@ -8,6 +8,65 @@
     -moz-osx-font-smoothing: grayscale;
     background-color: #f6f6f6;
   }
+  #box{
+    transition: all 0.2s ease;
+    display: flex;
+    position: fixed;
+    z-index: 99;
+    margin-top: 10vh;
+    flex-direction: column-reverse;
+    flex-wrap: nowrap;
+    align-items: center;
+    bottom: 0;
+    left:50%;
+    transform: translate(-50%,0);
+
+  }
+  @font-face {
+    font-family: "dancing";
+    src: url("../assets/font.ttf");
+  }
+  blockquote{
+    margin: 0;
+    padding: 1em 1em;
+    background: #ffffff;
+    position: relative;
+    border-left: .25em solid #666;
+    margin-bottom: 10px !important;
+  }
+  pre{
+    overflow: scroll;
+  }
+  .special_font {
+    font-weight: bold;
+    font-family: "dancing";
+  }
+  /* assets/css/global.css */
+.loading_layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.layer_logo {
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.5s;
+}
+
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+}
+
   /*
   @font-face {
     font-family: "dancing";
@@ -46,9 +105,6 @@
     background-color: #1a1a1a;
     cursor: pointer;
     transition: border-color 0.25s;
-  }
-  button:hover {
-    border-color: #646cff;
   }
   button:focus,
   button:focus-visible {

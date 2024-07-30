@@ -4,6 +4,8 @@ import path from 'path'
 export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ['@nuxt/content'],
+
+  
   hooks: {
     'nitro:config': async (nitroConfig) => {
       const contentRoutes = await generateContentRoutes()
@@ -37,13 +39,14 @@ export default defineNuxtConfig({
 async function generateContentRoutes() {
   const contentDir = path.resolve(__dirname, 'content')
 
-  async function getMarkdownFiles(dir) {
-    const subdirs = await fs.readdir(dir)
+
+async function getMarkdownFiles(dir: string): Promise<string[]> {
+    const subdirs = await fs.readdir(dir);
     const files = await Promise.all(subdirs.map(async (subdir) => {
-      const res = path.resolve(dir, subdir)
-      return (await fs.stat(res)).isDirectory() ? getMarkdownFiles(res) : res
-    }))
-    return files.flat().filter(file => path.extname(file) === '.md')
+      const res = path.resolve(dir, subdir);
+      return (await fs.stat(res)).isDirectory() ? getMarkdownFiles(res) : res;
+    }));
+    return files.flat().filter(file => path.extname(file) === '.md');
   }
 
   try {

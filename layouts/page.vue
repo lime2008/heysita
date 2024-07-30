@@ -14,10 +14,18 @@
 
   </script>
   
-  <style>
+  <style scoped>
   main{
-    padding: 35px 0 30px;
+    padding: 35px 0 35px;
     background-color: #f6f6f6;
+
+  max-width: 1000px;
+    width: 90%;
+    
+    margin-left: auto;
+    margin-right: auto;
+
   }
+
   </style>
   

@@ -1,7 +1,7 @@
 ---
 author: 珞佳
 timestamp: 1712654363
-title: 博客搬家啦，是写在新博客的第一篇随笔！
+title: 博客搬家啦，是写在新博客的第一篇随笔
 slug: a_new_begin_again
 image: https://creation.codemao.cn/716/appcraft/IMAGE_cOeIRSlgw_1721876072329.jpg
 

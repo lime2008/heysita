@@ -34,7 +34,7 @@ themeColor.value = data.value.themeColor
 
 </script>
 
-<style>
+<style scoped>
 main{
   padding: 35px 0 30px;
     background-color: #f6f6f6;
