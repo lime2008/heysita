@@ -4,23 +4,28 @@
   </div>
 </template>
 
-  <script setup lang="ts">
+<script setup lang="ts">
+  import { STYLE } from "../config/config";
+  import { defineProps } from "vue";
+  import { useHead } from "#imports";
 
-  import { STYLE } from '../config/config'
-  import { defineProps } from 'vue';
-  import { useHead } from '#imports'
-  
   interface FullBgProps {
     url: string;
-    themeColor : string;
+    themeColor: string;
   }
-  
-  const props = withDefaults(defineProps<FullBgProps>(), {url: STYLE.defaultImg , themeColor : STYLE.defaultThemeColor , height : '100vh'});
+
+  const props = withDefaults(defineProps<FullBgProps>(), {
+    url: STYLE.defaultImg,
+    themeColor: STYLE.defaultThemeColor,
+    height: "100vh",
+  });
   useHead({
     style: [
       {
-        children: `.full_bg:after {content: "";display: block;position: absolute;bottom: 0;width: 100%;height: 85%;background-image: linear-gradient(0deg, ${props.themeColor} 0%, #fff0 85%);}`
-    }]})
+        children: `.full_bg:after {content: "";display: block;position: absolute;bottom: 0;width: 100%;height: 85%;background-image: linear-gradient(0deg, ${props.themeColor} 0%, #fff0 85%);}`,
+      },
+    ],
+  });
   /*
   const { data } = await useAsyncData('routeMeta', () => {
     return {
@@ -50,21 +55,19 @@
     ]
   })
     */
-  </script>
-  
-  <style scoped>
-  
+</script>
+
+<style scoped>
   .full_bg {
-    z-index:-1;
+    z-index: -1;
     position: relative;
     background-position: 50%;
     background-size: cover;
     background-repeat: no-repeat;
     width: 100%;
-    height:30vh;
+    height: 30vh;
     top: 0;
-    min-height:300px;
+    min-height: 300px;
     left: 0;
   }
-  </style>
-  
+</style>
