@@ -2,19 +2,19 @@ import fs from 'fs/promises'
 import path from 'path'
 
 export default defineNuxtConfig({
+  ssr: false, // 关闭SSR
   devtools: { enabled: true },
   modules: ['@nuxt/content'],
 
-  
   hooks: {
     'nitro:config': async (nitroConfig) => {
       const contentRoutes = await generateContentRoutes()
       console.log('Generated content routes:', contentRoutes) // 添加日志输出
       if(nitroConfig.prerender?.routes !== undefined)
-      nitroConfig.prerender.routes.push(...contentRoutes)
-    else{
-      console.log('插入失败！')
-    }
+        nitroConfig.prerender.routes.push(...contentRoutes)
+      else{
+        console.log('插入失败！')
+      }
     }
   },
   routeRules: {
@@ -39,8 +39,7 @@ export default defineNuxtConfig({
 async function generateContentRoutes() {
   const contentDir = path.resolve(__dirname, 'content')
 
-
-async function getMarkdownFiles(dir: string): Promise<string[]> {
+  async function getMarkdownFiles(dir: string): Promise<string[]> {
     const subdirs = await fs.readdir(dir);
     const files = await Promise.all(subdirs.map(async (subdir) => {
       const res = path.resolve(dir, subdir);
