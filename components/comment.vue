@@ -25,7 +25,7 @@
       style="margin-top: 5px"
     />
     <heysita_input
-      :max-chars="100"
+      :max-chars="180"
       v-model="newComment.content"
       :isTextarea="true"
       placeholder="客官看后有什么想法吗，来聊两句吧~"

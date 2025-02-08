@@ -67,6 +67,7 @@ p{margin-bottom: 10px;}
     z-index:22;
     max-width: 1000px;
 }
+
 .link_description{
 	  margin-left:10px;
 	  width:calc(100% - 58px);

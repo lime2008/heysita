@@ -5,7 +5,7 @@ import avatar from "../assets/headimg_dl.jpg"
 export const LINK = link;
 export const NAVIGATION = routes;
 export const SITE: Site = {
-  website: "https://lokria.top/", // replace this with your deployed domain
+  website: "https://lokria.top/",
   author: "LOKRIA",
   avatar : avatar,
   desc: "珞佳的温暖小窝，记录着生活中琐碎小事.",

@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts" setup>
-  import { onMounted, ref, watch } from "vue";
+  import { onMounted, onUnmounted, ref } from "vue";
 
   const width = ref(0);
   const height = ref(0);
@@ -15,6 +15,7 @@
   const circles = ref<Circle[]>([]);
   let target = { x: 0, y: 0 };
   let animateHeader = true;
+  let animationFrameId: number;
 
   class Circle {
     pos: { x: number; y: number };
@@ -66,9 +67,6 @@
       height.value = window.innerHeight;
       target = { x: 0, y: height.value };
 
-      //largeHeader.value = document.getElementById('large-header') as HTMLElement;
-      //largeHeader.value.style.height = height.value + 'px';
-
       canvas.value = document.getElementById(
         "bubble-canvas",
       ) as HTMLCanvasElement;
@@ -86,15 +84,15 @@
     }
   });
 
+  onUnmounted(() => {
+    window.removeEventListener("resize", resize);
+    cancelAnimationFrame(animationFrameId);
+  });
+
   function addListeners() {
-    //window.addEventListener('scroll', scrollCheck);
     window.addEventListener("resize", resize);
   }
 
-  /* function scrollCheck() {
-    animateHeader = document.body.scrollTop <= height.value;
-  }
-  */
   function resize() {
     width.value = window.innerWidth;
     height.value = window.innerHeight;
@@ -112,7 +110,7 @@
       ctx.value.clearRect(0, 0, width.value, height.value);
       circles.value.forEach((circle) => circle.draw());
     }
-    requestAnimationFrame(animate);
+    animationFrameId = requestAnimationFrame(animate);
   }
 </script>
 

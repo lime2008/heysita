@@ -174,6 +174,18 @@ const links = [
         brief:'写代码，改BUG',
         url:'https://blog.svipwing.xyz'
     },
+    {
+        image:'https://casear.net/static/img/eae10f098ce1f671fa0e60d899bf545e.avatar.svg',
+        name:'Casear的技术栈',
+        brief:'如果你有机会到好望角，请在海边的石头上刻下我的故事👨‍💻',
+        url:'https://casear.net'
+    },
+    {
+        image:'https://q1.qlogo.cn/g?b=qq&nk=1942171924&s=100',
+        name:'CodeKpy的博客',
+        brief:'你所热爱的就是你的生活',
+        url:'https://codekpy.cloudroo.top/'
+    },
 ];
 
 const style = {

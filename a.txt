@@ -157,7 +157,7 @@ sudo systemctl stop $SERVICE_NAME
 
 # 编译新的 Go 应用程序
 go build -o $GO_APP_PATH $GO_SOURCE_PATH
-
+        
 # 启动服务
 sudo systemctl start $SERVICE_NAME
 
